@@ -1,0 +1,59 @@
+
+  <!-- ? latest version html5 -->
+  <!DOCTYPE html>
+  <!-- ? root element / DOM ==> language-->
+  <html lang="en">
+    <head>
+      <!-- ? encoding  -->
+      <meta charset="UTF-8" />
+      <!-- ? latest version ==> edge -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- ? responsive -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- ~ can i use website -->
+      <title>Animation</title>
+      <script>
+        window.MathJax = {
+          MathML: { extensions: ["mml3.js", "content-mathml.js"] },
+        };
+      </script>
+      <style>  
+      </style>  
+      
+    </head>
+    <body> 
+      
+        <canvas width="600" height="600" style="border:1px solid black" id="canv"></canvas> 
+            
+      <script>
+         var canv = document.getElementById("canv");
+         var x=150,y=150;
+        var ctx = canv.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(10,10);
+    ctx.lineTo(x,y);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+  
+    function sleep(milliseconds) {  
+      return new Promise(resolve => setTimeout(resolve, milliseconds));  
+   }  
+   async function fun() {  
+    while(x<600 || y<600){
+        await sleep(500); 
+        x+=10;
+        y+=10;
+        ctx.lineTo(x,y);
+        ctx.stroke();
+        if(x>=600 || y>=600){
+        alert("animation end")
+        }
+        }
+   }  
+   fun();  
+    ctx.closePath();
+      
+      </script>
+    </body>
+  </html>
+  
